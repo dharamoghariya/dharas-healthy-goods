@@ -1,0 +1,45 @@
+/* Add any CSS you need to this file. */
+
+/* Contact page form*/
+.contactMain {
+  background-color: rgb(221, 221, 221);
+  padding: 5% 30%;
+  padding-top: 120px;
+  font-family: "Signika", sans-serif;
+  color: #266150;
+}
+.contactHeader {
+  text-align: center;
+  padding: 3%;
+}
+#ordernumber {
+  visibility: hidden;
+  height: 0;
+}
+
+p {
+  text-align: center;
+}
+
+.col {
+  min-width: 200px;
+}
+
+.btn {
+  background-color: #266150;
+  width: 100%;
+}
+.btn:hover {
+  background-color: #9dc88d;
+  color: #266150;
+}
+
+.error {
+  color: red;
+}
+
+@media only screen and (max-width: 900px) {
+  .minWidth {
+    width: 100%;
+  }
+}

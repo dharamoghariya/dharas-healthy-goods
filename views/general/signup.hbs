@@ -1,0 +1,69 @@
+<!--************************************************************************************
+*  WEB322 – Assignment 1 (Winter 2021) 
+*  I declare that this assignment is my own work in accordance with Seneca Academic 
+*  Policy. No part of this assignment has been copied manually or electronically from 
+*  any other source (including web sites) or distributed to other students.
+*   
+*  Name:  Dhara Moghariya
+*  Student ID:  161449194
+*  Course:  WEB322 NDD
+*
+************************************************************************************-->
+
+<div class="contactMain" id="contactmain">
+    <h1 class="contactHeader">Sign Up</h1>
+    <p>Create your account by entering your information and choosing your password</p>
+    <!-- Submit the form to sign up using a POST request -->
+    <form id="contact-form" action="/signup" method="POST">
+        <div class="row">
+            <div class="form-group col">
+                <label for="firstName"><span class="text-danger">*</span> First Name</label>
+                <input class="form-control" id="firstName" name="firstName" autocomplete="given-name"
+                    value="{{values.firstName}}" type="text" autofocus tabindex="1" />
+                {{#if validationMessages.firstName}}
+                <span class="error">{{ validationMessages.firstName }}</span><br />
+                {{/if}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col">
+                <label for="lastName"><span class="text-danger">*</span> Last Name</label>
+                <input class="form-control" id="lastName" name="lastName" autocomplete="family-name"
+                    value="{{values.lastName}}" type="text" tabindex="2" />
+                {{#if validationMessages.lastName}}
+                <span class="error">{{ validationMessages.lastName }}</span><br />
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="email"><span class="text-danger">*</span> Email Address</label>
+                <input id="email" class="form-control" name="email" autocomplete="email" value="{{values.email}}"
+                    placeholder="user@example.com" type="email" tabindex="3" />
+                {{#if validationMessages.email}}
+                <span class="error">{{ validationMessages.email }}</span><br />
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="password"><span class="text-danger">*</span> Password</label>
+                <input id="password" class="form-control" name="password" value="{{values.password}}"
+                    placeholder="******" type="password" tabindex="4" />
+                {{#if validationMessages.password}}
+                <span class="error">{{ validationMessages.password }}</span><br />
+                {{/if}}
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="form-group col">
+                <input class="btn btn-primary" type="submit" name="submit" value="Sign Up" tabindex="5" />
+            </div>
+        </div>
+    </form>
+</div>

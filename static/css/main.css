@@ -1,0 +1,510 @@
+/************************************************************************************
+*  WEB322 – Assignment 1 (Winter 2021) 
+*  I declare that this assignment is my own work in accordance with Seneca Academic 
+*  Policy. No part of this assignment has been copied manually or electronically from 
+*  any other source (including web sites) or distributed to other students.
+*   
+*  Name:  Dhara Moghariya
+*  Student ID:  161449194
+*  Course:  WEB322 NDD
+*
+************************************************************************************/
+
+/* Roboto Font (Google font) */
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+/* Signika Font (Google font) */
+@import url("https://fonts.googleapis.com/css2?family=Signika&display=swap");
+
+/* Main Container */
+.container {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+}
+
+/* Style for Paragraph */
+p {
+  padding-left: 5%;
+  padding-right: 5%;
+  align-items: center;
+}
+.p10 {
+  padding-left: 10%;
+  padding-right: 10%;
+  align-items: center;
+}
+.p25 {
+  padding-left: 25%;
+  padding-right: 25%;
+  align-items: center;
+}
+
+/* Style for Navbar */
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+header div img {
+  height: 60px;
+  width: 275px;
+  margin-left: auto;
+  margin-right: auto;
+}
+header .logoHeader {
+  background-color: #fdf8f5;
+  align-items: center;
+  height: 60px;
+}
+header nav {
+  background-color: #266150;
+  height: 55px;
+  justify-content: center;
+}
+.name {
+  color: bisque;
+}
+header nav ul {
+  list-style-type: none;
+  overflow: hidden;
+}
+header nav ul li {
+  width: 135px;
+  float: left;
+  padding: 0px;
+}
+header nav a:link,
+header nav a:visited {
+  display: block;
+  font-family: "Roboto", sans-serif;
+  color: #ffffff;
+  background-color: #266150;
+  text-align: center;
+  font-size: 1.3em;
+  padding: 3px 15px;
+  text-decoration: none;
+}
+header nav a:hover {
+  background: #9dc88d
+    url("https://cdn.makegoodfood.ca/images/home/slider/Goodfood_home_slider_texture_bg.png")
+    no-repeat scroll center center;
+  color: #266150;
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+header nav ul {
+  list-style-type: none;
+  overflow: hidden;
+  padding: 0;
+}
+header nav ul li {
+  width: 155px;
+  float: left;
+}
+header nav ul li ul {
+  padding: 8px 12px;
+  position: absolute;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+}
+header nav ul li:hover ul {
+  display: block;
+  padding: 0;
+  width: 155px;
+  opacity: 1;
+  visibility: visible;
+}
+header nav ul li ul li {
+  text-align: left;
+  width: 155px;
+}
+
+/* Style for "Hero Container" */
+.heroContainer {
+  position: relative;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+
+/* Sub Div in "Hero Container */
+.slider .subHeroDiv {
+  position: absolute;
+  top: 47.5%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  padding: 25px;
+  text-align: center;
+  border-radius: 7px;
+  max-width: 40%;
+  z-index: 1000;
+}
+.slider.subHeroDiv h1,
+.slider .subHeroDiv h3 {
+  color: #266150;
+  font-size: 1.35em;
+}
+.subHeroDiv h1 {
+  color: #266150;
+  font-size: 2em;
+}
+
+/* Style for "Info Container" &
+  "Top Meal Container" &
+  "Menu"  */
+.menu {
+  float: left;
+  padding-top: 160px;
+  /* position: fixed; */
+  height: 100%;
+  width: 20%;
+}
+.menu ul {
+  display: inline-block;
+  list-style-type: none;
+}
+.navMenu li {
+  padding: 15px;
+  border: 2px solid #266150;
+  margin: 5px;
+  border-radius: 1%;
+  background-color: #9dc88d;
+}
+.navMenu li a {
+  text-decoration: none;
+  font-size: 1.5em;
+  color: #266150;
+}
+.navMenu li a:hover {
+  color: #fdf8f5;
+}
+.infoContainer,
+.topMealContainer {
+  height: auto;
+  margin: 0;
+}
+.infoContainer {
+  background: #9dc88d
+    url("https://cdn.makegoodfood.ca/images/home/slider/Goodfood_home_slider_texture_bg.png")
+    no-repeat scroll center center;
+}
+.topMealContainer {
+  background-color: #fdf8f5;
+}
+#displayBlock {
+  margin: 0;
+}
+#displayBlock a:hover {
+  text-decoration: none;
+}
+.menuH1 {
+  padding-top: 155px;
+  padding-bottom: 25px;
+  margin-left: 40%;
+}
+.mealDiv {
+  border-radius: 1%;
+  border: 2px solid #266150;
+  margin-left: 30%;
+  margin-right: 11%;
+  margin-bottom: 5%;
+}
+.infoDiv h1,
+.topMealDiv h1,
+.mealDiv h1 {
+  margin-top: 0;
+  padding-top: 25px;
+  text-align: center;
+  font-size: 2em;
+  font-family: "Signika", sans-serif;
+}
+.mealDiv h1 {
+  padding-top: 45px;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+  grid-gap: 0.5em;
+  width: 100%;
+  max-width: auto;
+  margin: 0 auto;
+  margin-bottom: 4rem;
+  justify-content: space-around;
+}
+.productDec {
+  background: var(--main-gray);
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: 100;
+  padding: 1.5rem 0.5rem;
+  text-align: center;
+  margin: 3rem;
+  text-decoration: none;
+}
+.topMealDiv .productDec,
+.mealDiv .productDec {
+  background-image: linear-gradient(62deg, #266150 0%, #797979 100%);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.topMeal:hover,
+.meal:hover {
+  box-shadow: 1px 1px 2px rgb(29, 29, 29);
+  background-image: linear-gradient(62deg, #797979 0%, #266150 100%);
+  text-decoration: none;
+  font-weight: 250;
+}
+.topMealDiv .productDec:hover,
+.mealDiv .productDec:hover {
+  background-image: linear-gradient(62deg, #797979 0%, #266150 100%);
+}
+.infoText {
+  color: #266150;
+  padding-top: 5px;
+  font-size: 1.4em;
+  text-align: center;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.productDec a {
+  margin: auto;
+}
+.productDec p {
+  color: #266150;
+  padding-top: 5px;
+  font-size: 0.8em;
+  text-decoration: none;
+}
+.topMeal p,
+.meal p {
+  color: #ebf6f5;
+}
+small {
+  font-size: 0.5em;
+  padding-top: 0;
+}
+.productDec .product-title {
+  padding-top: 20px;
+  padding-right: 0;
+  padding-left: 0;
+  font-size: 1.1em;
+}
+.project-image {
+  width: 100%;
+  height: 225px;
+  object-fit: cover;
+}
+img {
+  display: block;
+  width: 100%;
+}
+
+.infoImg .info-image {
+  border-radius: 50%;
+  width: 80%;
+  height: 50%;
+  margin-left: 10%;
+}
+
+/* Page body view */
+.pagebodyView {
+  padding-top: 115px;
+}
+
+/* footer */
+footer {
+  z-index: 15;
+}
+/* Style for "backTOTop" bar */
+.backToTop {
+  background-color: #266150;
+  height: 2.5em;
+  margin: 0;
+}
+.backToTop p {
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-size: 1.2em;
+  text-decoration: none;
+  padding-top: 6px;
+  text-align: center;
+}
+.backToTop p a {
+  color: #ebf6f5;
+  text-decoration: none;
+}
+.backToTop:hover {
+  background-image: linear-gradient(62deg, #797979 0%, #266150 100%);
+}
+.backToTop:hover p a {
+  text-decoration: none;
+}
+/* Style for bottom contact div */
+.storeDetails {
+  display: flex;
+  background: #9dc88d
+    url("https://cdn.makegoodfood.ca/images/home/slider/Goodfood_home_slider_texture_bg.png")
+    no-repeat scroll center center;
+  font-family: "Roboto", sans-serif;
+  color: #266150;
+  min-height: 250px;
+  margin: 0;
+  padding: 10px;
+}
+.storeDetails div {
+  flex: 1;
+  padding-top: 2%;
+  padding-left: 7%;
+  text-decoration: none;
+  min-width: 75px;
+}
+.storeDetails div p {
+  font-size: 1.2em;
+}
+.storeDetails div p a {
+  color: #266150;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+.storeDetails div p a:hover {
+  color: #ebf6f5;
+}
+.storeDetails div a i {
+  color: #266150;
+  text-align: center;
+}
+.storeDetails div a i:hover {
+  color: #ebf6f5;
+}
+.storeDetails div .row {
+  padding-top: 0;
+  padding-left: 3%;
+  padding-right: 2%;
+  font-size: 0.8em;
+  height: 60px;
+}
+.storeDetails div .row p {
+  font-size: 1.6em;
+}
+.contact {
+  font-size: 1em;
+}
+.col .subContact {
+  font-size: 1em;
+}
+.storeDetails .col {
+  min-width: 200px;
+}
+.storeDetails div .row a i:hover {
+  color: #ebf6f5;
+}
+.icon a i {
+  font-size: 1.4em;
+  padding-right: 10px;
+}
+.subscribe {
+  margin-left: 15px;
+  font-size: 2.4em;
+}
+strong {
+  font-size: 1.2em;
+}
+/* Style for footer */
+#footer {
+  background-color: #266150;
+  height: auto;
+  margin: 0 0;
+  padding: 5px 0 5px 0;
+  color: #ebf6f5;
+  text-align: center;
+}
+
+/* temp style */
+.tempH1 {
+  padding: 125px;
+  text-align: center;
+}
+
+/* Media CSS */
+@media only screen and (min-width: 1680px) {
+  .mealDiv {
+    margin-right: 20%;
+  }
+}
+@media only screen and (max-width: 1150px) {
+  .infoContainer {
+    background: #9dc88d;
+  }
+}
+@media only screen and (max-width: 700px) {
+  p,
+  .p10,
+  .p25 {
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+  .slider .subHeroDiv {
+    margin-top: 5%;
+  }
+}
+@media only screen and (max-width: 1250px) {
+  .navMenu {
+    visibility: hidden;
+  }
+  .menuH1 {
+    margin-left: 27%;
+  }
+  .mealDiv {
+    margin: 5% 10%;
+  }
+  .navMenu {
+    margin: 0 5%;
+  }
+  .menuH1 {
+    margin-left: 7%;
+    padding-top: 20px;
+  }
+  .menu {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+}
+@media only screen and (min-width: 1150px) {
+  .navMain {
+    visibility: hidden;
+    width: 0;
+  }
+}
+@media only screen and (max-width: 1150px) {
+  .nav2,
+  .nav3 {
+    visibility: hidden;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .slider .subHeroDiv h3 {
+    visibility: hidden;
+  }
+  .slider .subHeroDiv h1 {
+    padding-top: 205px;
+    font-size: 1.5em;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .slider .subHeroDiv h1 {
+    padding-top: 305px;
+    font-size: 1.2em;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .slider .subHeroDiv h1 {
+    padding-top: 425px;
+    font-size: 1em;
+  }
+}
