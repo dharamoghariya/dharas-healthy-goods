@@ -172,12 +172,13 @@ router.post("/signup", (req, res) => {
         sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
 
         const emailMsg = {
-            to: "dharamoghariya25@gmail.com",
+            to: `${email}`,
             from: "dmoghariya@myseneca.ca",
             subject: "Sign Up Form Submission",
             html:
                 `Vistor's Full Name: ${firstName} ${lastName}<br>
-                Vistor's Email Address: ${email}<br>`
+                Vistor's Email Address: ${email}<br>
+                You sign up for Dhara's Healthy Goods`
         };
 
         // Asyncronously sends the email message.
