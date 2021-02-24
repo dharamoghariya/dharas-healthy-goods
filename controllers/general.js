@@ -186,7 +186,9 @@ router.post("/signup", (req, res) => {
             .then(() => {
                 // res.send("Success");
                 res.render("general/welcome", {
-                    title: "Welcome"
+                    title: "Welcome",
+                    fname: firstName,
+                    lname: lastName
                 });
             })
             .catch(err => {
