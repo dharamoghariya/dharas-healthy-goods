@@ -5,11 +5,11 @@ the Seneca Academic Policy. No part of this assignment has been
 copied manually or electronically from any other source
 (including web sites) or distributed to other students.
 
-Name: Dhara Moghariya
-Student ID: 161449194
-Course: WEB322
+Name: Dhara Moghariya <br/>
+Student ID: 161449194 <br/>
+Course: WEB322 <br/>
 
 ## Project URLs
 
-GitHub Repository: https://github.com/dharamoghariya/dharas-healthy-goods.git
-Heroku URL: https://dharas-healthy-goods.herokuapp.com/
+GitHub Repository: https://github.com/dharamoghariya/dharas-healthy-goods.git <br/>
+Heroku URL: https://dharas-healthy-goods.herokuapp.com <br/>
