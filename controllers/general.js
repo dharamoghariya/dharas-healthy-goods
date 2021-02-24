@@ -183,7 +183,10 @@ router.post("/signup", (req, res) => {
         // Asyncronously sends the email message.
         sgMail.send(emailMsg)
             .then(() => {
-                res.send("Success");
+                // res.send("Success");
+                res.render("general/welcome", {
+                    title: "Welcome"
+                });
             })
             .catch(err => {
                 console.log(`Error ${err}`);
