@@ -79,7 +79,8 @@ router.post("/login", (req, res) => {
 
     // Email
     if (passedValidation) {
-        res.send("Success");
+        // res.send("Success");
+        res.redirect("/");
     }
     else
     {
