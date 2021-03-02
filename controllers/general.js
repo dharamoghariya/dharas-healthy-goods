@@ -185,11 +185,12 @@ router.post("/signup", (req, res) => {
         sgMail.send(emailMsg)
             .then(() => {
                 // res.send("Success");
-                res.render("general/welcome", {
-                    title: "Welcome",
-                    fname: firstName,
-                    lname: lastName
-                });
+                res.redirect("/welcome");
+                // res.render("general/welcome", {
+                //     title: "Welcome",
+                //     fname: firstName,
+                //     lname: lastName
+                // });
             })
             .catch(err => {
                 console.log(`Error ${err}`);
