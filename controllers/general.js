@@ -58,7 +58,7 @@ router.get("/login", function(req, res){
 
 // Log In Form Validation
 router.post("/login", (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
 
     let validationMessages = {};
     let passedValidation = true;
@@ -101,7 +101,7 @@ router.get("/signup", function(req, res){
 
 // Sign Up Form Validation
 router.post("/signup", (req, res) => {
-    console.log(req.body);
+    //console.log(req.body);
 
     let validationMessages = {};
     let passedValidation = true;

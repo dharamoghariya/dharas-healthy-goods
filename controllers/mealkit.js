@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get("/", function(req, res) {
     res.render("general/menu", {
-        items: mealModel.getAllItems(),
+        menuItems: mealModel.getAllItems(),
         title: "Menu"
     });
 });
