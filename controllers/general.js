@@ -142,7 +142,7 @@ router.post("/signup", (req, res) => {
     }
 
     // Password validation
-    let pwdRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,12}$/;
+    let pwdRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,12}$/; // https://stackoverflow.com/
     if (password.length === 0) {
         validationMessages.password = "You must specify a password.";
         passedValidation = false;
