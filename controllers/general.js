@@ -142,7 +142,8 @@ router.post("/signup", (req, res) => {
     }
 
     // Password validation
-    let pwdRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,12}$/; // https://stackoverflow.com/
+    // Regular Expression from https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
+    let pwdRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,12}$/;
     if (password.length === 0) {
         validationMessages.password = "You must specify a password.";
         passedValidation = false;
