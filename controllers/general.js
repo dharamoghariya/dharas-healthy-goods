@@ -142,28 +142,13 @@ router.post("/signup", (req, res) => {
     }
 
     // Password validation
+    let pwdRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,12}$/;
     if (password.length === 0) {
         validationMessages.password = "You must specify a password.";
         passedValidation = false;
     }
-    else if (password.length < 6 || password.length > 12) {
-        validationMessages.password = "Your password must be between 6 to 12 characters.";
-        passedValidation = false;
-    }
-    else if (!(/[0-9]/.test(password))) {
-        validationMessages.password = "Your password must contain at least one number.";
-        passedValidation = false;
-    }
-    else if (!(/[!@#$%&*?"]/.test(password))) {
-        validationMessages.password = "Your password must contain at least one Symbol.";
-        passedValidation = false;
-    }
-    else if (password == password.toUpperCase()) {
-        validationMessages.password = "Your password must contain at least one lower case character.";
-        passedValidation = false;
-    }
-    else if (password == password.toLowerCase()) {
-        validationMessages.password = "Your password must contain at least one Upper case characters.";
+    else if (!(pwdRegex.test(password))) {
+        validationMessages.password = "Your password must be between 6 to 12 characters and must contain at least one number, one special character, one lower and one upper case character.";
         passedValidation = false;
     }
 
