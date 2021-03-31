@@ -12,6 +12,18 @@
 
 var items = [
     {
+        title: "Sahi Rabdi",
+        include: "Milk, Sugar, Nuts",
+        description: "Sahi Rabdi",
+        category: "Classic Meal",
+        price: 9.99,
+        cookingTime: "25 minutes",
+        servings: 1,
+        caloriesPerServing: 890,
+        imageUrl: 'images/img19.jpg',
+        topMeal: true
+    },
+    {
         title: "Sahi Paneer",
         include: "Paneer, Onion, Tomato, Nuts",
         description: "Sahi Paneer",
@@ -33,18 +45,6 @@ var items = [
         servings: 2,
         caloriesPerServing: 890,
         imageUrl: 'images/img01.jpg',
-        topMeal: true
-    },
-    {
-        title: "Sahi Rabdi",
-        include: "Milk, Sugar, Nuts",
-        description: "Sahi Rabdi",
-        category: "Classic Meal",
-        price: 9.99,
-        cookingTime: "25 minutes",
-        servings: 1,
-        caloriesPerServing: 890,
-        imageUrl: 'images/img19.jpg',
         topMeal: true
     },
     {
@@ -123,7 +123,26 @@ var items = [
 ];
 
 module.exports.getAllItems = function() {
-    return items;
+    // return items;
+
+    let categories = [];
+
+    for (i = 0; i < items.length; i++) {
+        let currentItems = items[i];
+        let categoryName = currentItems.category
+        
+        let category = categories.find(c=>c.category == categoryName);
+
+        if (!category) {
+            category = {
+                category: categoryName,
+                categoryItems: []
+            };
+            categories.push(category);
+        }
+        category.categoryItems.push(currentItems);
+    }
+    return categories;
 };
 
 module.exports.getTopItems = function() {
@@ -136,3 +155,6 @@ module.exports.getTopItems = function() {
     }
     return topItems;
 };
+
+
+

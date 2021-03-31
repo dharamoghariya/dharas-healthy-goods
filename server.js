@@ -30,8 +30,8 @@ app.engine('.hbs', exphbs({
     extname: '.hbs',
     defaultLayout: 'main',
     helpers: {
-        ifCond: function(arg1, arg2, options) {
-            return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
+        repString: function(data, search, replace) {
+            return data.replace(search, replace);
         }
     }
 }));
@@ -63,6 +63,7 @@ app.use(express.static(__dirname + "/static"));
 const generalController = require("./controllers/general");
 const mealController = require("./controllers/mealkit");
 const userController = require("./controllers/user");
+
 
 app.use("/", generalController);
 app.use("/menu", mealController);

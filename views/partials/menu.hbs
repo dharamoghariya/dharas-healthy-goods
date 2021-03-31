@@ -1,51 +1,24 @@
 <nav class="menu">
     <ul class="navMenu row">
+        {{#each menuItems}}
         <li>
-            <a href="#classicMeals" class="text">Classic Meals</a>
+            <a href="#{{repString this.category " " "" }}" class="text">{{this.category}}</a>
         </li>
-        <li>
-            <a href="#vegMeals" class="text">Vegetarian Meals</a>
-        </li>
-        <li>
-            <a href="#easyPrepMeals" class="text">Instant Meals</a>
-        </li>
+        {{/each}}
     </ul>
 </nav>
 
 <h1 class="menuH1">Menu of Dhara's Healthy Goods</h1>
 
-<div id="classicMeals" class="mealDiv">
-    <h1>Classic Meals</h1>
+{{#each menuItems}}
+<div id={{repString this.category " " "" }} class="mealDiv">
+    <h1> {{this.category}}</h1>
 
-    <div id="displayBlock" class="products-grid product">
-        {{#each items}}
-        {{#ifCond category "Classic Meal"}}
-        {{>menuMeal this}}
-        {{/ifCond}}
+    <div id="displayBlock" class="products-grid menu-grid">
+        {{#each this.categoryItems}}
+        {{>meal this}}
         {{/each}}
     </div>
+
 </div>
-
-<div id="vegMeals" class="mealDiv">
-    <h1>Vegetarian Meals</h1>
-
-    <div id="displayBlock" class="products-grid product">
-        {{#each items}}
-        {{#ifCond category "Vegetarian Meal"}}
-        {{>menuMeal this}}
-        {{/ifCond}}
-        {{/each}}
-    </div>
-</div>
-
-<div id="easyPrepMeals" class="mealDiv">
-    <h1>Instant Meals</h1>
-
-    <div id="displayBlock" class="products-grid product">
-        {{#each items}}
-        {{#ifCond category "Instant Meal"}}
-        {{>menuMeal this}}
-        {{/ifCond}}
-        {{/each}}
-    </div>
-</div>
+{{/each}}
