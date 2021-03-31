@@ -13,6 +13,11 @@
 <div class="contactMain" id="contactmain">
     <h1 class="contactHeader">Sign Up</h1>
     <p>Create your account by entering your information and choosing your password</p>
+
+    {{#each errors}}
+    <p class="error">{{this}}</p>
+    {{/each}}
+
     <!-- Submit the form to sign up using a POST request -->
     <form id="contact-form" action="/signup" method="POST">
         <div class="row">

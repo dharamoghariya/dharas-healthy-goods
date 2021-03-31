@@ -15,10 +15,14 @@ const path = require("path");
 const express = require("express");
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
-
+const session = require('express-session');
 const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+
+// Set up dotenv environment variables.
 dotenv.config({path:"./config/all.env"});
 
+// Set up express
 const app = express();
 
 // Set up Handlebars
@@ -34,6 +38,20 @@ app.engine('.hbs', exphbs({
 
 app.set('view engine', '.hbs');
 
+// Set up express-session
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true
+}));
+
+app.use((req, res, next) => {
+    // res.locals.user is a global handlebars variable.
+    // This means that ever single handlebars file can access that user variable
+    res.locals.user = req.session.user;
+    next();
+});
+
 // Set up body parser
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -44,14 +62,29 @@ app.use(express.static(__dirname + "/static"));
 // Load controllers into Express
 const generalController = require("./controllers/general");
 const mealController = require("./controllers/mealkit");
+const userController = require("./controllers/user");
 
 app.use("/", generalController);
 app.use("/menu", mealController);
+app.use("/", userController);
 
 // Set up a route to a header page (http://localhost:8080/headers)
 app.get("/headers", (req, res) => {
     const headers = req.headers;
     res.send(headers);
+});
+
+// Set up and connect to MongoDB
+mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+})
+.then(() => {
+    console.log("Connected to the MongoDB database.");
+})
+.catch((err) => {
+    console.log(`There was a problem connecting to MongoDB ... ${err}`)
 });
 
 // This use() will not allow requests to go beyond it

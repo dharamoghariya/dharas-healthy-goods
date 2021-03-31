@@ -13,6 +13,10 @@
 <div class="contactMain" id="contactmain">
     <h1 class="contactHeader">Welcome</h1>
 
+    {{#each errors}}
+    <p class="error">{{this}}</p>
+    {{/each}}
+
     <!-- Submit the form to login using a POST request -->
     <form id="contact-form" action="/login" method="POST">
         <div class="form-row">
@@ -39,9 +43,18 @@
 
         <br />
 
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="isClerk" tabindex="3">
+            <label class="form-check-label" for="isClerk">
+                Data entry clerk
+            </label>
+        </div>
+
+        <br />
+
         <div class="row">
             <div class="form-group col">
-                <input class="btn btn-primary" type="submit" name="submit" value="Log In" tabindex="3" />
+                <input class="btn btn-primary" type="submit" name="submit" value="Log In" tabindex="4" />
             </div>
         </div>
     </form>
