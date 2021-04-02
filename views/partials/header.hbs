@@ -8,7 +8,7 @@
                 <a href="#"><i class="material-icons">menu</i></a>
                 <ul>
                     {{#if user}}
-                    <li><a href="/" class="text">Hi {{user.firstName}}!</a></li>
+                    <li><a href="/" class="text">Hi {{user.firstName}} {{user.lastName}}!</a></li>
                     <li><a href="/">Home</a></li>
                     <li><a href="/menu">Menu</a></li>
                     {{#if user.isClerk}}
