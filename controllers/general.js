@@ -35,17 +35,17 @@ router.get("/about", function(req, res){
     });
 });
 
-// Set up a rout to our Clerk page. (setup another route to listen on /clerk)
-router.get("/clerk", function(req, res){
-    res.render("general/clerk", {
-        title: "Clerk"
-    });
-});
-
 // Set up a rout to our deal page. (setup another route to listen on /deal)
 router.get("/deal", function(req, res){
     res.render("general/deal", {
         title: "Deal"
+    });
+});
+
+// Set up a rout to our Clerk Data Entry page if user is clerk else redirect to deal page. (setup another route to listen on /mealData)
+router.get("/data", function(req, res){
+    res.render("general/data", {
+        title: "Data"
     });
 });
 

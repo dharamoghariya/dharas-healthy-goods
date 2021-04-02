@@ -134,7 +134,7 @@ router.get("/login", (req, res) => {
 
 router.post("/login", (req, res) => {
 
-    // console.log(req.body);
+    console.log(req.body);
 
     let validationMessages = {};
     let passedValidation = true;
@@ -172,11 +172,16 @@ router.post("/login", (req, res) => {
                         // Password is matched.
 
                         // Create a new session and set the user to the
-                        // "user" object returned from the DB.
-                        req.session.user = user;
+                        // "user" object returned from the DB
+                        data = {};
+                        data.firstName = user.firstName;
+                        data.lastName = user.lastName;
+                        data.email = user.email;
+                        data.isClerk = req.body.isClerk;
+                        req.session.user = data;
 
                         res.redirect("/");
-
+                        
                     }
                     else {
                         // Password does not match.
