@@ -11,6 +11,11 @@
                     <li><a href="/" class="text">Hi {{user.firstName}}!</a></li>
                     <li><a href="/">Home</a></li>
                     <li><a href="/menu">Menu</a></li>
+                    {{#if user.isClerk}}
+                    <li><a href="/data" class="text">Data</a>C</li>
+                    {{else}}
+                    <li><a href="/deal" class="text">Deal</a></li>
+                    {{/if}}
                     <li><a href="/logout" class="text">Logout</a></li>
                     {{else}}
                     <li><a href="/">Home</a></li>
@@ -22,21 +27,21 @@
             </li>
             <ul class="nav2">
                 <li><a href="/"><i class="material-icons" id="homepage">home</i></a></li>
-                <li><a href="/about" class="text">About</a></li>
+                {{!-- <li><a href="/about" class="text">About</a></li> --}}
                 <li><a href="/menu" class="text">Menu</a></li>
                 {{#if user}}
                 {{#if user.isClerk}}
-                <li><a href="/data" class="text">Data</a>C</li>
+                <li><a href="/data" class="text">Data</a></li>
                 {{else}}
                 <li><a href="/deal" class="text">Deal</a></li>
-                {{/if}}
-                {{/if}}
                 <li><a href="/cart"><i class="material-icons">shopping_cart</i></a></li>
+                {{/if}}
+                {{/if}}
             </ul>
         </ul>
         <ul class="nav3">
             {{#if user}}
-            <li><a href="/" class="text">Hi {{user.firstName}}!</a></li>
+            <li class="textName"><a href="/" class="text">Hi {{user.firstName}} {{user.lastName}}!</a></li>
             <li><a href="/logout" class="text">Logout</a></li>
             {{else}}
             <li><a href="/login" class="text">Log in</a></li>

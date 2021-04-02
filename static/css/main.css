@@ -123,6 +123,10 @@ header nav ul li ul li {
   text-align: left;
   width: 155px;
 }
+header .nav3 .textName {
+  float: left;
+  width: auto;
+}
 
 /* Style for "Hero Container" */
 .heroContainer {

@@ -134,7 +134,7 @@ router.get("/login", (req, res) => {
 
 router.post("/login", (req, res) => {
 
-    console.log(req.body);
+    // console.log(req.body);
 
     let validationMessages = {};
     let passedValidation = true;
