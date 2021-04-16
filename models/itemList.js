@@ -123,8 +123,6 @@ var items = [
 ];
 
 module.exports.getAllItems = function() {
-    // return items;
-
     let categories = [];
 
     for (i = 0; i < items.length; i++) {
