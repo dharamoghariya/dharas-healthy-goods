@@ -1,6 +1,42 @@
 /* Add any CSS you need to this file. */
 
-/* Contact page form*/
+/* Meal kit form */
+.btnWidth {
+  width: 150px;
+}
+
+.btnRow {
+  padding-left: 35%;
+  padding-right: 35%;
+}
+
+.divTop {
+  padding: 125px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.divBottom {
+  padding-bottom: 225px;
+}
+
+.inputdata {
+  color: black;
+}
+
+.mealForm {
+  background-color: rgb(221, 221, 221);
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 20px;
+  font-family: "Signika", sans-serif;
+  color: #266150;
+}
+.mealForm .inputFullWidth {
+  width: 100%;
+}
+
+/* Contact page form */
 .contactMain {
   background-color: rgb(221, 221, 221);
   padding: 5% 30%;
@@ -8,6 +44,7 @@
   font-family: "Signika", sans-serif;
   color: #266150;
 }
+
 .contactHeader {
   text-align: center;
   padding: 3%;

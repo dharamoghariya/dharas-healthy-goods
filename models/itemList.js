@@ -122,39 +122,39 @@ var items = [
 
 ];
 
-module.exports.getAllItems = function() {
-    // return items;
+// module.exports.getAllItems = function() {
+//     // return items;
 
-    let categories = [];
+//     let categories = [];
 
-    for (i = 0; i < items.length; i++) {
-        let currentItems = items[i];
-        let categoryName = currentItems.category
+//     for (i = 0; i < items.length; i++) {
+//         let currentItems = items[i];
+//         let categoryName = currentItems.category
         
-        let category = categories.find(c=>c.category == categoryName);
+//         let category = categories.find(c=>c.category == categoryName);
 
-        if (!category) {
-            category = {
-                category: categoryName,
-                categoryItems: []
-            };
-            categories.push(category);
-        }
-        category.categoryItems.push(currentItems);
-    }
-    return categories;
-};
+//         if (!category) {
+//             category = {
+//                 category: categoryName,
+//                 categoryItems: []
+//             };
+//             categories.push(category);
+//         }
+//         category.categoryItems.push(currentItems);
+//     }
+//     return categories;
+// };
 
-module.exports.getTopItems = function() {
-    var topItems = [];
+// module.exports.getTopItems = function() {
+//     var topItems = [];
 
-    for (var i = 0; i < items.length; i++) {
-        if (items[i].topMeal) {
-            topItems.push(items[i]);
-        }
-    }
-    return topItems;
-};
+//     for (var i = 0; i < items.length; i++) {
+//         if (items[i].topMeal) {
+//             topItems.push(items[i]);
+//         }
+//     }
+//     return topItems;
+// };
 
 
 

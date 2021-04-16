@@ -18,6 +18,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const fileUpload = require("express-fileupload");
 
 // Set up dotenv environment variables.
 dotenv.config({path:"./config/all.env"});
@@ -55,6 +56,9 @@ app.use((req, res, next) => {
 // Set up body parser
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// Set up express-fileupload
+app.use(fileUpload());
+
 // Setup a folder that static resources can load from.
 // Include images, css files, etc.
 app.use(express.static(__dirname + "/static"));
@@ -63,11 +67,13 @@ app.use(express.static(__dirname + "/static"));
 const generalController = require("./controllers/general");
 const mealController = require("./controllers/mealkit");
 const userController = require("./controllers/user");
-
+const loadDataController = require("./controllers/load-data");
 
 app.use("/", generalController);
 app.use("/menu", mealController);
 app.use("/", userController);
+//app.use("/load-data", loadDataController);
+app.use("/load-data", loadDataController);
 
 // Set up a route to a header page (http://localhost:8080/headers)
 app.get("/headers", (req, res) => {

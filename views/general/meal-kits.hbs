@@ -1,0 +1,166 @@
+<!--************************************************************************************
+*  WEB322 – Assignment 5 (Winter 2021) 
+*  I declare that this assignment is my own work in accordance with Seneca Academic 
+*  Policy. No part of this assignment has been copied manually or electronically from 
+*  any other source (including web sites) or distributed to other students.
+*   
+*  Name:  Dhara Moghariya
+*  Student ID:  161449194
+*  Course:  WEB322 NDD
+*
+************************************************************************************-->
+<h1 class="divTop">Clerk Data Entry Dashboard</h1>
+
+<div class="mealForm">
+
+    <h1 class="contactHeader">Create New Meal kit</h1>
+
+    {{#each errors}}
+    <p class="error">{{this}}</p>
+    {{/each}}
+
+    <form method="post" action="addMealkit" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="title"> Title: </label>
+                <input class="inputFullWidth" type="text" name="title" value="" placeholder="Enter name of mealkit"
+                    placeholder="Mealkit name" tabindex="1" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="include">Included ingredients: </label>
+                <input class="inputFullWidth" type="text" name="include" value=""
+                    placeholder="Ingredient 1, Ingredient 2, .." tabindex="2" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="description">Description: </label>
+                <input class="inputFullWidth" type="text" name="description" value=""
+                    placeholder="Description of mealkit" tabindex="3" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="category">Category: </label>
+                <input class="inputFullWidth" type="text" name="category" value=""
+                    placeholder="Classic Meal or Vegetarian Meal or .." tabindex="4" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="price">Price: </label>
+                <input class="inputFullWidth" type="text" name="price" value="" placeholder="$$" tabindex="5" />
+            </div>
+            <div class="form-group col">
+                <label for="cookingTime">Cooking Time: </label>
+                <input class="inputFullWidth" type="text" name="cookingTime" value="" placeholder="xx minutes"
+                    tabindex="6" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="servings">Serving: </label>
+                <input class="inputFullWidth" type="text" name="servings" value="" placeholder="x" tabindex="7" />
+            </div>
+            <div class="form-group col">
+                <label for="caloriesPerServing">Calories per serving: </label>
+                <input class="inputFullWidth" type="text" name="caloriesPerServing" value="" placeholder="xx"
+                    tabindex="8" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <input class="inputFullWidth" type="file" name="imageUrl" value="" tabindex="10" />
+            </div>
+            <div class="form-group col">
+                <input class="form-check-input" type="checkbox" name="topMeal" value="true" tabindex="9">
+                <label class="form-check-label" for="topMeal"> Top Meal </label>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <input class="btn btn-primary" type="submit" name="submit" value="Add New Meal Kit" tabindex="11" />
+            </div>
+        </div>
+    </form>
+
+    </br> </br>
+
+    <h1 class="contactHeader">List of Meal kits</h1>
+    </br> </br>
+
+    {{#each data}}
+    <form method="post" action="updateMealkit" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="title">Title: </label>
+                <input class="inputFullWidth" type="text" name="title" value="{{title}}" readonly />
+            </div>
+            <div class="form-group col">
+                <label for="include">Included ingredients: </label>
+                <input class="inputFullWidth" type="text" name="include" value="{{include}}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="description">Description: </label>
+                <input class="inputFullWidth" type="text" name="description" value="{{description}}" />
+            </div>
+            <div class="form-group col">
+                <label for="category">Category: </label>
+                <input class="inputFullWidth" type="text" name="category" value="{{category}}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="price">Price: </label>
+                <input class="inputFullWidth" type="text" name="price" value="{{price}}" />
+            </div>
+            <div class="form-group col">
+                <label for="cookingTime">Cooking Time: </label>
+                <input class="inputFullWidth" type="text" name="cookingTime" value="{{cookingTime}}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="servings">Serving: </label>
+                <input class="inputFullWidth" type="text" name="servings" value="{{servings}}" />
+            </div>
+            <div class="form-group col">
+                <label for="caloriesPerServing">Calories per serving: </label>
+                <input class="inputFullWidth" type="text" name="caloriesPerServing" value="{{caloriesPerServing}}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="paddingLeft">
+            </div>
+            <div class="form-group col inputdata">
+                <lable name="imageUrl">{{imageUrl}} </label>
+            </div>
+            <div class="form-group col">
+                <input class="inputFullWidth" type="file" name="imageUrl" value="{{imageUrl}}" />
+            </div>
+
+            <div class="form-group col">
+                <input class="form-check-input" type="checkbox" name="topMeal" value="true" {{#if topMeal}} checked
+                    {{/if}}>
+                <label class="inputFullWidth" class="form-check-label" for="topMeal"> Top Meal </label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col">
+                <input class="btn btn-primary" type="submit" name="submit" value="Update" />
+            </div>
+        </div>
+    </form>
+    </br> </br>
+    {{/each}}
+
+</div>

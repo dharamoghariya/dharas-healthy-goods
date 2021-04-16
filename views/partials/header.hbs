@@ -1,6 +1,6 @@
 <header>
     <div class="logoHeader" id="logoHeader">
-        <a href="/"><img src="images/logo.png" id="logo" alt="logo" /></a>
+        <a href="/"><img src="/images/logo.png" id="logo" alt="logo" /></a>
     </div>
     <nav id="navigationbar" class="navbar row">
         <ul class="nav1">
@@ -12,7 +12,7 @@
                     <li><a href="/">Home</a></li>
                     <li><a href="/menu">Menu</a></li>
                     {{#if user.isClerk}}
-                    <li><a href="/data" class="text">Data</a>C</li>
+                    <li><a href="/load-data/meal-kits" class="text">Mealkits</a></li>
                     {{else}}
                     <li><a href="/deal" class="text">Deal</a></li>
                     {{/if}}
@@ -31,7 +31,7 @@
                 <li><a href="/menu" class="text">Menu</a></li>
                 {{#if user}}
                 {{#if user.isClerk}}
-                <li><a href="/data" class="text">Data</a></li>
+                <li><a href="/load-data/meal-kits" class="text">Mealkits</a></li>
                 {{else}}
                 <li><a href="/deal" class="text">Deal</a></li>
                 <li><a href="/cart"><i class="material-icons">shopping_cart</i></a></li>

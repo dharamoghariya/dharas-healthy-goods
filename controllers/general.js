@@ -9,15 +9,27 @@
 *  Course:  WEB322 NDD
 *
 ************************************************************************************/ 
-const mealModel = require("../models/itemList");
+// const mealModel = require("../models/itemList");
+const TopMealModel = require("../models/mealKits");
 const express = require('express');
 const router = express.Router();
 
 // Set up a route to our homepage.
 router.get("/", function(req,res) {
-    res.render("general/home", {
-        topItems: mealModel.getTopItems(),
-        title: "Home"
+    TopMealModel.find()
+    .exec()
+    .then((topMealkits) => {
+        let data = topMealkits.map(value => value.toObject());
+        var topMealItems = [];
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].topMeal) {
+                topMealItems.push(data[i]);
+            }
+        }
+        res.render("general/home", {
+            topItems: topMealItems,
+            title: "Home"
+        });
     });
 });
 
@@ -43,11 +55,11 @@ router.get("/deal", function(req, res){
 });
 
 // Set up a rout to our Clerk Data Entry page if user is clerk else redirect to deal page. (setup another route to listen on /mealData)
-router.get("/data", function(req, res){
-    res.render("general/data", {
-        title: "Data"
-    });
-});
+// router.get("/meal-kits", function(req, res){
+//     res.render("general/meal-kits", {
+//         title: "Mealkits"
+//     });
+// });
 
 // Set up a rout to our cart page. (setup another route to listen on /cart)
 router.get("/cart", function(req, res){
