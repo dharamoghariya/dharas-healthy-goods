@@ -41,6 +41,20 @@ router.get("/welcome", function(req, res){
     });
 });
 
+// Set up a rout to our description page. (setup another route to listen on /welcome)
+router.get("/description/:id", function(req, res){
+    const mealId = req.params.id;
+
+    TopMealModel.findOne({_id:mealId})
+    .exec()
+    .then((meal) => {
+        res.render("general/description", {
+            title: `${meal.title}`,
+            meal: meal.toObject()
+        });
+    });
+});
+
 // Set up a rout to our about page. (setup another route to listen on /about)
 router.get("/about", function(req, res){
     res.render("general/about", {

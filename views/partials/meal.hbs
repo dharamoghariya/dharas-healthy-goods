@@ -1,7 +1,9 @@
-<a href="#" class="productDec meal">
+<a href="/description/{{this._id}}" class="productDec meal">
     <img class="project-image" src="{{this.imageUrl}}" alt="product">
     <p class="product-title">{{this.title}}<br>
         <small>{{this.include}}</small><br>
+        <small>Price: ${{this.price}}</small>
+        {{!-- <button><i class="material-icons" href="/cart">shopping_cart</i></button> --}}
     </p>
-    <p>Price: ${{this.price}}</p>
+
 </a>

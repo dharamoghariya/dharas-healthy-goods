@@ -1,0 +1,21 @@
+<div id="descriptionPage">
+    <img class="project-image" src="{{meal.imageUrl}}" alt="product">
+    <div class="descriptionFlex">
+        <div>
+            <h4>Cooking Time: {{meal.cookingTime}} </h4>
+        </div>
+        <div>
+            <h4>Servings: {{meal.servings}} </h4>
+        </div>
+
+        <div>
+            <h4>Calories Per Serving: ${{meal.caloriesPerServing}} </h4>
+        </div>
+    </div>
+    <h1 class="product-title">{{meal.title}} </h1></br>
+    <h2><small>{{meal.include}} </small></h2></br>
+    <p>{{meal.description}}</p>
+    <div class="addToCartButton">
+        <button> Buy for ${{meal.price}} <i class="material-icons" href="/cart">shopping_cart</i></button>
+    </div>
+</div>
