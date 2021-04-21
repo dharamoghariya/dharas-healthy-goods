@@ -69,23 +69,19 @@ router.get("/add-meal/:id", (req, res) => {
                 }
             });
 
-            if (found) {
-                message = "Meal was already in the cart, incremented the quantity by one.";
-            }
-            else {
+            if (!found) {
                 cart.push({
                     id: mealId,
                     qty: 1,
                     meal: meal.toObject()
                 });
                 cart.sort((a, b) => a.meal.title.localeCompare(b.meal.title));
-                message = "Meal added to the shopping cart.";
+                // message = "Meal added to the shopping cart.";
             }
-            // Render the view using the view model. res.render("general/menu", prepareViewModel(req, message));
-            res.redirect("/menu");
+            // Render the view using the view model. // res.render("general/menu", prepareViewModel(req, message));
+            res.redirect('back'); // res.redirect("/menu");
         }).catch(error =>{
-            message = "No meals found";
-            res.render("general/msg", prepareViewModel(req, message));
+            res.render("general/msg", prepareViewModel(req, "No meals found"));
         });
     }
 });
@@ -137,15 +133,45 @@ router.get("/check-out", (req, res) => {
         const sgMail = require("@sendgrid/mail");
         sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
 
+        const userCart = req.session.cart;
+        const receipt = userCart.map((meal) => {
+            return `<tr>
+                        <td style='border:none; text-align:center;'><h3>${meal.meal.title}</h3></td>
+                        <td style='border:none; text-align:center;'><h3>${meal.qty}</h3></td>
+                        <td style='border:none; text-align:center;'><h3>$${meal.meal.price}</h3></td>
+                    </tr>`;
+        }).join('<tr></tr>');
+        var cartTotal = 0;
+        userCart.forEach(cartMeal => {
+            cartTotal += (cartMeal.meal.price * cartMeal.qty);
+        });
+
         const emailCheckoutMsg = {
             to: `${req.session.user.email}`,
             from: "dmoghariya@myseneca.ca",
-            subject: "Checkout from Dhara's Healthy Good",
+            subject: "Order from Dhara's Healthy Good",
             html:
-                `Vistor's Full Name: ${req.session.user.firstName} ${req.session.user.lastName}<br>
-                Vistor's Email Address: ${req.session.user.email}<br>
-                You bought these items from Dhara's Healthy Goods
-                ${req.session.cart}`
+                `User's Full Name: ${req.session.user.firstName} ${req.session.user.lastName}<br>
+                You have successfully completed your order from Dhara's Healthy Goods
+                
+                <h1>Order Details</h1>
+                <table width="50%" cellspacing="25" style="text-align:center;" border="1px solid black">
+                    <thead>
+                        <tr>
+                            <th style='border:none; text-align:center;'><h2> Item </h2></th>
+                            <th style='border:none; text-align:center;'><h2>Quantity</h2></th>
+                            <th style='border:none; text-align:center;'><h2>Unit Price</h2></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${receipt}
+                    </tbody>
+                </table>
+                <h2>Total Purchase Amount: $${cartTotal.toFixed(2)}</h2>
+                Thank you! 
+                <br><br>
+                <h4>Dhara's Healthy Goods</h4>
+                <br>`
         };
 
         // Asyncronously sends the email message.
