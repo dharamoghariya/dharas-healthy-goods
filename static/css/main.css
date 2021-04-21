@@ -398,6 +398,7 @@ footer {
 
 .checkoutDiv {
   text-align: center;
+  padding-bottom: 5px;
 }
 
 .checkoutDiv button {
@@ -422,10 +423,12 @@ footer {
 
 .background {
   background-color: #95b8ae;
+  padding-left: 5px;
 }
 
 .lightBackground {
   background-color: #e9f3f0;
+  padding-left: 5px;
 }
 
 /* Style for bottom contact div */

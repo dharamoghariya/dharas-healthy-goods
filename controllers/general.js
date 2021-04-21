@@ -69,11 +69,4 @@ router.get("/deal", function(req, res){
     });
 });
 
-// Set up a rout to our cart page. (setup another route to listen on /cart)
-// router.get("/cart", function(req, res){
-//     res.render("general/cart", {
-//         title: "Cart"
-//     });
-// });
-
 module.exports = router;

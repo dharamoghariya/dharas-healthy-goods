@@ -52,7 +52,7 @@ router.get("/add-meal/:id", (req, res) => {
 
     if (!req.session.user) {
         // Cannot add the meal because the user is not logged in.
-        res.render("general/cart", prepareViewModel(req, "You must be logged in."));
+        res.render("general/msg", prepareViewModel(req, "You must be logged in."));
     }
     else {
         var cart = req.session.cart = req.session.cart || [];
@@ -78,14 +78,14 @@ router.get("/add-meal/:id", (req, res) => {
                     qty: 1,
                     meal: meal.toObject()
                 });
-                cart.sort((a, b) => a.meal.artist.localeCompare(b.meal.artist));
+                cart.sort((a, b) => a.meal.title.localeCompare(b.meal.title));
                 message = "Meal added to the shopping cart.";
             }
-            // Render the view using the view model.
-            res.render("general/cart", prepareViewModel(req, message));
+            // Render the view using the view model. res.render("general/menu", prepareViewModel(req, message));
+            res.redirect("/menu");
         }).catch(error =>{
             message = "No meals found";
-            res.render("general/cart", prepareViewModel(req, message));
+            res.render("general/msg", prepareViewModel(req, message));
         });
     }
 });
@@ -97,7 +97,7 @@ router.get("/remove-meal/:id", (req, res) => {
 
     if (!req.session.user) {
         // Cannot remove the meal because the user is not logged in.
-        res.render("general/cart", prepareViewModel(req, "You must be logged in."));
+        res.render("general/msg", prepareViewModel(req, "You must be logged in."));
     }
     else {
         var cart = req.session.cart || [];
@@ -134,27 +134,22 @@ router.get("/check-out", (req, res) => {
     }
     else if (Array.isArray(req.session.cart) && req.session.cart.length > 0) {
         
-        // const emailCheckoutMsg = {
-        //     to: `${email}`,
-        //     from: "dmoghariya@myseneca.ca",
-        //     subject: "Checkout from Dhara's Healthy Good",
-        //     html:
-        //         `Vistor's Full Name: ${firstName} ${lastName}<br>
-        //         Vistor's Email Address: ${email}<br>
-        //         You bought these items from Dhara's Healthy Goods
-        //         ${req.session.cart}`
-        // };
+        const sgMail = require("@sendgrid/mail");
+        sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
 
-        // // Asyncronously sends the email message.
-        // sgMail.send(emailCheckoutMsg)
-        //     .then(() => {
-        //         res.redirect("/welcome");
-        //     })
-        //     .catch(err => {
-        //         console.log(`Error ${err}`);
-        //         res.send("Error");
-        //         res.redirect("/signup");
-        //     });
+        const emailCheckoutMsg = {
+            to: `${req.session.user.email}`,
+            from: "dmoghariya@myseneca.ca",
+            subject: "Checkout from Dhara's Healthy Good",
+            html:
+                `Vistor's Full Name: ${req.session.user.firstName} ${req.session.user.lastName}<br>
+                Vistor's Email Address: ${req.session.user.email}<br>
+                You bought these items from Dhara's Healthy Goods
+                ${req.session.cart}`
+        };
+
+        // Asyncronously sends the email message.
+        sgMail.send(emailCheckoutMsg);
 
         message = "Thank you for your purchase, checked out!"
         req.session.cart = [];
