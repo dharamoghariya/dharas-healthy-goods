@@ -1,3 +1,15 @@
+<!--************************************************************************************
+*  WEB322 – Assignment 6 (Winter 2021) 
+*  I declare that this assignment is my own work in accordance with Seneca Academic 
+*  Policy. No part of this assignment has been copied manually or electronically from 
+*  any other source (including web sites) or distributed to other students.
+*   
+*  Name:  Dhara Moghariya
+*  Student ID:  161449194
+*  Course:  WEB322 NDD
+*
+************************************************************************************-->
+
 <div id="descriptionPage">
     <img class="project-image" src="{{meal.imageUrl}}" alt="product">
     <div class="descriptionFlex">
@@ -16,6 +28,7 @@
     <h2><small>{{meal.include}} </small></h2></br>
     <p>{{meal.description}}</p>
     <div class="addToCartButton">
-        <button> Buy for ${{meal.price}} <i class="material-icons" href="/cart">shopping_cart</i></button>
+        <button type="button" onclick="window.location.href='/add-meal/{{meal._id}}'"> Buy for ${{meal.price}} <i
+                class="material-icons" href="/cart">shopping_cart</i></button>
     </div>
 </div>

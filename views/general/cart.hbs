@@ -1,1 +1,59 @@
-<h1 class="tempH1">Your Cart</h1>
+<!--************************************************************************************
+*  WEB322 – Assignment 6 (Winter 2021) 
+*  I declare that this assignment is my own work in accordance with Seneca Academic 
+*  Policy. No part of this assignment has been copied manually or electronically from 
+*  any other source (including web sites) or distributed to other students.
+*   
+*  Name:  Dhara Moghariya
+*  Student ID:  161449194
+*  Course:  WEB322 NDD
+*
+************************************************************************************-->
+
+<h1 class="headderH1">Your Cart</h1>
+
+{{#if message}}
+<p class="error">{{message}}</p>
+{{/if}}
+
+<div class="checkoutDiv">
+    <h3>Cart Amount: {{cartTotal}} </h3>
+    <button type="button" onclick="window.location.href='/check-out'">Checkout</button>
+</div>
+
+{{#if hasMeals}}
+<div class="cartDiv">
+    <div class="descriptionFlex background">
+        <div>
+            <h3>Item</h3>
+        </div>
+        <div>
+            <h3>Price</h3>
+        </div>
+        <div>
+            <h3>Quantity</h3>
+        </div>
+        <div>
+            <h3> </h3>
+        </div>
+    </div>
+
+    {{#each meals}}
+    <div class="descriptionFlex lightBackground">
+        <div>
+            <h5>{{this.meal.title}}</h5>
+        </div>
+        <div>
+            <h5>{{this.meal.price}}</h5>
+        </div>
+        <div>
+            <h5>{{this.qty}}</h5>
+        </div>
+        <div class="checkoutDiv">
+            <button type="button" onclick="window.location.href='/remove-meal/{{this.id}}'">Remove</button>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+{{/if}}

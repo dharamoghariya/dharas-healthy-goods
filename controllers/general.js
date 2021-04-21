@@ -69,18 +69,11 @@ router.get("/deal", function(req, res){
     });
 });
 
-// Set up a rout to our Clerk Data Entry page if user is clerk else redirect to deal page. (setup another route to listen on /mealData)
-// router.get("/meal-kits", function(req, res){
-//     res.render("general/meal-kits", {
-//         title: "Mealkits"
+// Set up a rout to our cart page. (setup another route to listen on /cart)
+// router.get("/cart", function(req, res){
+//     res.render("general/cart", {
+//         title: "Cart"
 //     });
 // });
-
-// Set up a rout to our cart page. (setup another route to listen on /cart)
-router.get("/cart", function(req, res){
-    res.render("general/cart", {
-        title: "Cart"
-    });
-});
 
 module.exports = router;

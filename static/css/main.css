@@ -396,6 +396,38 @@ footer {
   padding-bottom: 20px;
 }
 
+.checkoutDiv {
+  text-align: center;
+}
+
+.checkoutDiv button {
+  background-color: #266150;
+  color: #e9f3f0;
+}
+
+.checkoutDiv button:hover {
+  background-color: #488573;
+  color: #e9f3f0;
+}
+
+.cartDiv {
+  padding: 5%;
+}
+
+.headderH1 {
+  padding-top: 125px;
+  padding-bottom: 25px;
+  text-align: center;
+}
+
+.background {
+  background-color: #95b8ae;
+}
+
+.lightBackground {
+  background-color: #e9f3f0;
+}
+
 /* Style for bottom contact div */
 .storeDetails {
   display: flex;

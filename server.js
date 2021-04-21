@@ -68,12 +68,13 @@ const generalController = require("./controllers/general");
 const mealController = require("./controllers/mealkit");
 const userController = require("./controllers/user");
 const loadDataController = require("./controllers/load-data");
+const cartController = require("./controllers/cart");
 
 app.use("/", generalController);
 app.use("/menu", mealController);
 app.use("/", userController);
-//app.use("/load-data", loadDataController);
 app.use("/load-data", loadDataController);
+app.use("/", cartController);
 
 // Set up a route to a header page (http://localhost:8080/headers)
 app.get("/headers", (req, res) => {
