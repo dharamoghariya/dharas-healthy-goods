@@ -16,11 +16,6 @@
 <p class="error">{{message}}</p>
 {{/if}}
 
-<div class="checkoutDiv">
-    <h3>Cart Amount: {{cartTotal}} </h3>
-    <button type="button" onclick="window.location.href='/check-out'">Checkout</button>
-</div>
-
 {{#if hasMeals}}
 <div class="cartDiv">
     <div class="descriptionFlex background">
@@ -55,5 +50,10 @@
     </div>
     {{/each}}
 </div>
-
 {{/if}}
+
+
+<div class="checkoutDiv checkoutTotalDiv">
+    <h3>Cart Amount: {{cartTotal}} </h3>
+    <button type="button" onclick="window.location.href='/check-out'">Checkout</button>
+</div>

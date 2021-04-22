@@ -401,6 +401,15 @@ footer {
   padding-bottom: 5px;
 }
 
+.checkoutTotalDiv {
+  padding-bottom: 50px;
+}
+
+.checkoutTotalDiv button {
+  padding: 5px 35px;
+  font-size: 1.2em;
+}
+
 .checkoutDiv button {
   background-color: #266150;
   color: #e9f3f0;
@@ -417,18 +426,19 @@ footer {
 
 .headderH1 {
   padding-top: 125px;
-  padding-bottom: 25px;
   text-align: center;
 }
 
 .background {
   background-color: #95b8ae;
-  padding-left: 5px;
+  padding-left: 15px;
 }
 
 .lightBackground {
   background-color: #e9f3f0;
-  padding-left: 5px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 /* Style for bottom contact div */

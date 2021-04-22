@@ -25,8 +25,8 @@
         </div>
     </div>
     <h1 class="product-title">{{meal.title}} </h1></br>
-    <h2><small>{{meal.include}} </small></h2></br>
-    <p>{{meal.description}}</p>
+    <h2><small>Ingredients: {{meal.include}} </small></h2></br>
+    <p>Description: {{meal.description}}</p>
     <div class="addToCartButton">
         <button type="button" onclick="window.location.href='/add-meal/{{meal._id}}'"> Buy for ${{meal.price}} <i
                 class="material-icons" href="/cart">shopping_cart</i></button>
